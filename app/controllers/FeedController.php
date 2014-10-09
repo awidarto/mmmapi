@@ -11,7 +11,7 @@ class FeedController extends \BaseController {
 	{
 		//
 
-        return Media::all();
+        return Media::where('status','approved')->get();
 	}
 
 
