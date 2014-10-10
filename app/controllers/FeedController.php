@@ -13,6 +13,13 @@ class FeedController extends \BaseController {
         $media = Media::where('status','approved')->orderBy('createdDate','desc')->get();
 
         for( $i = 0; $i < count($media); $i++ ){
+
+                $media[$i]->id = $media[$i]->_id;
+                $media[$i]->token = $media[$i]->_token;
+
+                unset($media[$i]->_id);
+                unset($media[$i]->_token);
+
                 unset($media[$i]->thumbnail_url);
                 unset($media[$i]->large_url);
                 unset($media[$i]->medium_url);
@@ -43,15 +50,19 @@ class FeedController extends \BaseController {
                 $media[$i]->defaultmedias = $dm;
 
                 foreach($dm as $k=>$v){
-                    $name = 'media_'.$k;
+                    $name = 'media'.str_replace(' ', '', ucwords( str_replace('_', ' ', $k) ));
                     $media[$i]->{$name} = $v;
                 }
                 unset($media[$i]->defaultmedias);
 
                 $dp = $media[$i]->defaultpictures;
 
+                unset($dp['delete_type']);
+                unset($dp['delete_url']);
+                unset($dp['temp_dir']);
+
                 foreach($dp as $k=>$v){
-                    $name = 'picture_'.$k;
+                    $name = 'picture'.str_replace(' ', '', ucwords( str_replace('_', ' ', $k) ));
                     $media[$i]->{$name} = $v;
                 }
                 unset($media[$i]->defaultpictures);
