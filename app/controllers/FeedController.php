@@ -10,8 +10,28 @@ class FeedController extends \BaseController {
 	public function index()
 	{
 		//
+        $media = Media::where('status','approved')->get();
 
-        return Media::where('status','approved')->get();
+        for( $i = 0; $i < count($media); $i++ ){
+                unset($media[$i]->thumbnail_url);
+                unset($media[$i]->large_url);
+                unset($media[$i]->medium_url);
+                unset($media[$i]->full_url);
+                unset($media[$i]->delete_type);
+                unset($media[$i]->delete_url);
+                unset($media[$i]->filename);
+                unset($media[$i]->filesize);
+                unset($media[$i]->temp_dir);
+                unset($media[$i]->filetype);
+                unset($media[$i]->is_image);
+                unset($media[$i]->is_audio);
+                unset($media[$i]->is_video);
+                unset($media[$i]->fileurl);
+                unset($media[$i]->file_id);
+                unset($media[$i]->caption);
+        }
+
+        return ;
 	}
 
 
