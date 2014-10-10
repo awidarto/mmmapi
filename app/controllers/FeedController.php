@@ -10,7 +10,7 @@ class FeedController extends \BaseController {
 	public function index()
 	{
 		//
-        $media = Media::where('status','approved')->get();
+        $media = Media::where('status','approved')->orderBy('createdDate','desc')->get();
 
         for( $i = 0; $i < count($media); $i++ ){
                 unset($media[$i]->thumbnail_url);
@@ -29,6 +29,10 @@ class FeedController extends \BaseController {
                 unset($media[$i]->fileurl);
                 unset($media[$i]->file_id);
                 unset($media[$i]->caption);
+
+                // non file related
+                unset($media[$i]->lyric);
+
         }
 
         return $media;
