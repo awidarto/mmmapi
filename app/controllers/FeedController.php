@@ -42,13 +42,19 @@ class FeedController extends \BaseController {
 
                 $media[$i]->defaultmedias = $dm;
 
+                foreach($dm as $k=>$v){
+                    $name = 'media_'.$k;
+                    $media[$i]->{$name} = $v;
+                }
+                unset($media[$i]->defaultmedias);
+
                 $dp = $media[$i]->defaultpictures;
 
-                unset($dp['delete_type']);
-                unset($dp['delete_url']);
-                unset($dp['temp_dir']);
-
-                $media[$i]->defaultpictures = $dp;
+                foreach($dp as $k=>$v){
+                    $name = 'picture_'.$k;
+                    $media[$i]->{$name} = $v;
+                }
+                unset($media[$i]->defaultpictures);
 
         }
 
