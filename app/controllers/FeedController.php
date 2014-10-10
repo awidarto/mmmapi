@@ -31,7 +31,7 @@ class FeedController extends \BaseController {
                 unset($media[$i]->caption);
         }
 
-        return ;
+        return $media;
 	}
 
 
