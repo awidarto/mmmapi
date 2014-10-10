@@ -14,7 +14,11 @@ class FeedController extends \BaseController {
 
         for( $i = 0; $i < count($media); $i++ ){
 
-                $media[$i]->id = $media[$i]->_id;
+                $media[$i]->mongoid = $media[$i]->_id;
+                $mongoid = new MongoId($media[$i]->_id);
+
+                $media[$i]->id = $mongoid->getInc();
+
                 $media[$i]->token = $media[$i]->_token;
 
                 unset($media[$i]->_id);
