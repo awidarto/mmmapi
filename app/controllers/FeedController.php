@@ -56,6 +56,9 @@ class FeedController extends \BaseController {
                 }
                 unset($media[$i]->defaultpictures);
 
+                $media[$i]->createdDate = date('Y-m-d H:i:s',$media[$i]->createdDate->sec);
+                $media[$i]->lastUpdate = date('Y-m-d H:i:s',$media[$i]->lastUpdate->sec);
+
         }
 
         return $media;
