@@ -32,6 +32,14 @@ class FeedController extends \BaseController {
 
                 // non file related
                 unset($media[$i]->lyric);
+                unset($media[$i]->files);
+                unset($media[$i]->defaultmedias->delete_type);
+                unset($media[$i]->defaultmedias->delete_url);
+                unset($media[$i]->defaultmedias->temp_dir);
+
+                unset($media[$i]->defaultpictures->delete_type);
+                unset($media[$i]->defaultpictures->delete_url);
+                unset($media[$i]->defaultpictures->temp_dir);
 
         }
 

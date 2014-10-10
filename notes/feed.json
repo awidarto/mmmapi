@@ -1,0 +1,57 @@
+{
+    _id: string,
+    _token: string,
+    album: string,
+    artist: string,
+    countryOfOrigin: string,
+    genre: string,
+    lastUpdate: {
+        sec: long,
+        usec: long
+    },
+    ownerId: string,
+    ownerName: string,
+    price: long,
+    slug: string,
+    status: string,
+    tags:string,
+    title: string,
+    type: string,
+    updated_at: string
+    createdDate: {
+        sec: long,
+        usec: long
+    },
+    defaultmedia: string,
+    defaultmedias: {
+        thumbnail_url: string,
+        large_url: string,
+        medium_url: string,
+        full_url: string,
+        filename: string,
+        filesize: long,
+        filetype: string,
+        is_image: integer,
+        is_audio: integer,
+        is_video: integer,
+        fileurl: string,
+        file_id: string,
+        caption: string
+    },
+    defaultpic: string,
+    defaultpictures: {
+        thumbnail_url: string,
+        large_url: string,
+        medium_url: string,
+        full_url: string,
+        filename: string,
+        filesize: long,
+        filetype: string,
+        is_image: integer,
+        is_audio: integer,
+        is_video: integer,
+        fileurl: string,
+        file_id: string,
+        caption: string
+    }
+}
